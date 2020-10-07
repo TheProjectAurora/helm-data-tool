@@ -4,8 +4,8 @@ Handling all kind of yaml file actions. Could merge, fullfill and add keys/value
 # USAGE:
 Importhatn thing is realize how last file in merge OR last key/value in command ovedefine all previous same key values. 
 
-## Merge two files
-`helm template -f `[./eg_files/set1.yaml](eg_files/set1.yaml)` -f `[./eg_files/set2.yaml](eg_files/set2.yaml)` helmchart` <br>
+## Merge [set1.yaml](eg_files/set1.yaml) and [set2.yaml](eg_files/set2.yaml) files:
+`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart` <br>
 OUTPUT:
 ```
 ---
@@ -39,8 +39,8 @@ From output is visible:
 * How list could be created.
 * How to point to list item and add/change those keys/values.
 
-## Mixed merge and set values:
-`helm template -f-f `[./eg_files/set1.yaml](eg_files/set1.yaml)` -f `[./eg_files/set2.yaml](eg_files/set2.yaml)` --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart`
+## Mixed merge [set1.yaml](eg_files/set1.yaml)&[set2.yaml](eg_files/set2.yaml) files and set values:
+`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart`
 OUTPUT:
 ```
 ---
