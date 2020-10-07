@@ -68,3 +68,6 @@ FYI: These lines in beginning of yaml file are ignored so you don't need to anyt
 ---
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
 ```
+
+## Overall usage:
+You can use tool by just install helm and go on. But in kubernetes system where chart museum/etc is in use you can push chart to there. After that you have tool available everywhere where you have that repo added to helm. That is handy becouse you not need to install/bring tool it self to place where to use it.
