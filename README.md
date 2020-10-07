@@ -44,12 +44,12 @@ From output is visible:
 OUTPUT:
 ```
 ---
+---
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
 Apps:
   Set1: Application1
   Set2: Application2
-Last_set: Set2
-key2: OverdefineMergedfilesKey2Value
+Last_set: OverdefineMergedfilesKey2Value
 key3: AddedKeyWithValue
 ```
 Ralize:
