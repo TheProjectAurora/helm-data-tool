@@ -59,7 +59,7 @@ Ralize:
 
 Lines comes from helm by automaticly becouse this whole *thing is not correct way to use helm but this is handy way to use it.* 
 
-### Writing `helm template ...` command output to file happened by using redirect of linux stdout to files:
+Writing `helm template ...` command output to file happened by using redirect of linux stdout to files:
 * Without print to screen: *helm command* **> file.yaml**"
 * With print to screen: *helm command* **| tee file.yaml**"
 
