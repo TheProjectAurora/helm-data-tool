@@ -52,7 +52,7 @@ Last_set: OverdefineMergedfilesKey2Value
 key3: AddedKeyWithValue
 ```
 Ralize:
-* How key2 is overdefined from merged files.
+* How Last_set is overdefined from merged files by using set.
 * How key3 is added to merged files output.
 
 ## Write output to file:
