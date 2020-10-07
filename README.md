@@ -70,4 +70,4 @@ FYI: These lines in beginning of yaml file are ignored so you don't need to anyt
 ```
 
 ## Overall usage:
-You can use tool by just install helm and go on. But in kubernetes system where chart museum/etc is in use you can push chart to there. After that you have tool available everywhere where you have that repo added to helm. That is handy becouse you not need to install/bring tool it self to place where to use it.
+You can use tool by just install helm and go on with cloned helm-yaml-tool repo as in examples. But in kubernetes system where chartmuseum/etc is in use you can push chart to there. After that you have tool available everywhere where you have that chart repo added to helm. That is handy becouse you not need to install/bring tool it self to place where to use it.
