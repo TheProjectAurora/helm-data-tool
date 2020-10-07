@@ -44,7 +44,6 @@ From output is visible:
 OUTPUT:
 ```
 ---
----
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
 Apps:
   Set1: Application1
