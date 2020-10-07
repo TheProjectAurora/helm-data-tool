@@ -6,7 +6,7 @@ Importhatn thing is realize how last file in merge OR last key/value in command 
 
 ## Merge two files
 `helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart` <br>
-output:
+OUTPUT:
 ```
 ---
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
@@ -19,6 +19,7 @@ From output is visible so last yaml define "Last_set" value to "Set2"
 
 ## Set values:
 ` helm template --set key1.name=NAME,key1.value=VALUE,key2=VALUE2,key3=\{1,2,3\},key3[2].name=NAME,key3[2].key=VALUE helmchart` <br>
+OUTPUT:
 ```
 ---
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
@@ -40,7 +41,7 @@ From output is visible:
 
 ## Mixed merge and set values:
 `helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart`
-Output:
+OUTPUT:
 ```
 ---
 # Source: helm-yaml-tool/templates/values_to_yaml.yaml
