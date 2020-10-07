@@ -5,7 +5,7 @@ Handling all kind of yaml file actions. Could merge, fullfill and add keys/value
 Importhatn thing is realize how last file in merge OR last key/value in command ovedefine all previous same key values. 
 
 ## Merge [set1.yaml](eg_files/set1.yaml) and [set2.yaml](eg_files/set2.yaml) files:
-`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart` <br>
+`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart` <BR><BR>
 OUTPUT:
 ```
 ---
@@ -18,7 +18,7 @@ Last_set: Set2
 From output is visible so last yaml define "Last_set" value to "Set2"
 
 ## Set values:
-` helm template --set key1.name=NAME,key1.value=VALUE,key2=VALUE2,key3=\{1,2,3\},key3[2].name=NAME,key3[2].key=VALUE helmchart` <br>
+` helm template --set key1.name=NAME,key1.value=VALUE,key2=VALUE2,key3=\{1,2,3\},key3[2].name=NAME,key3[2].key=VALUE helmchart` <BR><BR>
 OUTPUT:
 ```
 ---
@@ -40,7 +40,7 @@ From output is visible:
 * How to point to list item and add/change those keys/values.
 
 ## Mixed merge [set1.yaml](eg_files/set1.yaml)&[set2.yaml](eg_files/set2.yaml) files and set values:
-`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart`
+`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart` <BR><BR>
 OUTPUT:
 ```
 ---
