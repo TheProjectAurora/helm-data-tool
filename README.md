@@ -40,7 +40,7 @@ From output is visible:
 * How to point to list item and add/change those keys/values.
 
 ## Mixed merge [set1.yaml](eg_files/set1.yaml)&[set2.yaml](eg_files/set2.yaml) files and set values:
-`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set key2=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart` <BR><BR>
+`helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml --set Last_set=OverdefineMergedfilesKey2Value,key3=AddedKeyWithValue helmchart` <BR><BR>
 OUTPUT:
 ```
 ---
