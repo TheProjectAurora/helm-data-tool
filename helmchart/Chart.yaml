@@ -1,5 +1,5 @@
 apiVersion: v2
-name: helm-yaml-tool
+name: helm-data-tool
 description: Tool to:Merge yaml files, set keys/values to yaml and generate yaml.
 type: application
 version: 1.0.0
