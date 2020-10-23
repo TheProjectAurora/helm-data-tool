@@ -4,12 +4,13 @@ This tool is for manipulating the YAML files. The operations are merging,
 replacing the key values and adding new values. This can't delete the keys.
 This uses Helm (https://helm.sh/) to do the manipulation.
 
+This example expects, that `helm-yaml-tool.sh` is in `PATH`. 
+
 # Usage
 
 ```
-  helm template [-f <yaml 1> [-f <yaml 2> [-f <yaml 3> ... ]]] \
-    [--set key1=val1[,key2=val2...] [--set key3=val3,key4=val4,...]...] \
-    <path to helmchart>
+  helm-yaml-tool.sh [-f <yaml 1> [-f <yaml 2> [-f <yaml 3> ... ]]] \
+    [--set key1=val1[,key2=val2...] [--set key3=val3,key4=val4,...]...]    
 ```
 
 Parameters:
@@ -29,7 +30,7 @@ This examples can be executed directly from the current directory.
 This merges _set1.yaml_ and _set2.yaml_ together. 
 
 ```
-  helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart
+  helm-yaml-tool.sh -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml 
 ```
 
 The output:
@@ -47,7 +48,7 @@ is same as at the last file which is defined with _-f_. If you
 run:
 
 ```
-  helm template -f ./eg_files/set2.yaml -f ./eg_files/set1.yaml helmchart
+  helm-yaml-tool.sh -f ./eg_files/set2.yaml -f ./eg_files/set1.yaml
 ```
 
 The output:
@@ -71,7 +72,7 @@ _--set_ multiple times.
 Adding new value:
 
 ```
-  helm template -f ./eg_files/set1.yaml --set Apps.Set3="Hello world" helmchart
+  helm-yaml-tool.sh -f ./eg_files/set1.yaml --set Apps.Set3="Hello world"
 ```
 
 The output:
@@ -86,7 +87,7 @@ Last_set: Set1
 
 Replacing the value:
 ```
-  helm template -f ./eg_files/set1.yaml --set Apps.Set1="Hello world" helmchart
+  helm-yaml-tool.sh -f ./eg_files/set1.yaml --set Apps.Set1="Hello world"
 ```
 
 The output:
@@ -105,7 +106,7 @@ Arrays manipulations are a bit more complex. First we change
 the title of Teemu Vesala at file _array.yaml_:
 
 ```
-  helm template -f ./eg_files/array.yaml --set Users[0].Role="Public Clown"  helmchart
+  helm-yaml-tool.sh -f ./eg_files/array.yaml --set Users[0].Role="Public Clown"
 ```
 
 Output:
@@ -124,9 +125,8 @@ Users:
 
 Adding item:
 ```
-  helm template -f ./eg_files/array.yaml \
-    --set Users[2].Name="Charlie Brown",Users[2].Username=cbrown,Users[2].Role="Comic Character"  \
-    helmchart
+  helm-yaml-tool.sh -f ./eg_files/array.yaml \
+    --set Users[2].Name="Charlie Brown",Users[2].Username=cbrown,Users[2].Role="Comic Character"
 ```
 
 Output:
@@ -147,9 +147,8 @@ Users:
 
 The new list can be added:
 ```
-  helm template -f ./eg_files/array.yaml \
-    --set Passwords='{abc,def}'  \
-    helmchart
+  helm-yaml-tool.sh -f ./eg_files/array.yaml \
+    --set Passwords='{abc,def}'
 ```
 
 Output:
@@ -173,10 +172,9 @@ Users:
 Creating the list of structure. Here we are using multiple _--set_ commands
 to help the readability of the command.
 ```
-  helm template -f ./eg_files/array.yaml \
+  helm-yaml-tool.sh -f ./eg_files/array.yaml \
     --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
-    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
-    helmchart
+    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa
 ```
 
 Output:
@@ -204,10 +202,9 @@ Users:
  This tool can construct the new YAML file dynamically with _--set_-parameters.
 
 ```
-  helm template \
+  helm-yaml-tool.sh \
     --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
-    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
-    helmchart
+    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa
 ```
 
 Output:
@@ -228,11 +225,10 @@ This example merges two files and adds new data to it, but also replaces the key
 
 
 ```
-  helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
+  helm-yaml-tool.sh -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
     --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
     --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
-    --set Last_set="Dynamically created" \
-    helmchart
+    --set Last_set="Dynamically created"
 ```
 
 Output:
@@ -248,7 +244,6 @@ Passwords:
   User: tvesala
 - Password: 123dsa
   User: shoisko
-
 ```
 
 ### Writing to file
@@ -257,14 +252,41 @@ The temlate is written to the standard output. Writing it to the file can be
 done two different ways:
 
 ```
-    helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart >output.yaml
+    helm-yaml-tool.sh -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml >output.yaml
 ```
 
 This writes the output to _output.yaml_ file and does not print anything to the screen.
 To write to the file and screen:
 
 ```
-    helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart | tee output.yaml
+    helm-yaml-tool.sh -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml | tee output.yaml
+```
+
+### Raw usage
+
+This is the usage example without the wrapper. 
+
+
+```
+  helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
+    --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
+    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
+    --set Last_set="Dynamically created" helmchart
+```
+
+Output:
+```yaml
+---
+# Source: helm-yaml-tool/templates/values_to_yaml.yaml
+Apps:
+  Set1: Application1
+  Set2: Application2
+Last_set: Dynamically created
+Passwords:
+- Password: abc
+  User: tvesala
+- Password: 123dsa
+  User: shoisko
 ```
 
 ### Extra things
@@ -272,7 +294,7 @@ To write to the file and screen:
 This can also merge multiple JSON files and convert them to YAML file.
 
 ```
-  helm template -f eg_files/test.json
+  helm-yaml-tool.sh -f eg_files/test.json
 ```
 
 Output:
