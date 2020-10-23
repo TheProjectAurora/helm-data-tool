@@ -215,3 +215,25 @@ To write to the file and screen:
 ```
     helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml helmchart | tee output.yaml
 ```
+
+### Extra things
+
+This can also merge multiple JSON files and convert them to YAML file.
+
+```
+  helm template -f eg_files/test.json
+```
+
+Output:
+```yaml
+---
+# Source: helm-yaml-tool/templates/values_to_yaml.yaml
+Users:
+- Name: Teemu Vesala
+  Username: tvesala
+- Name: Sakari Hoisko
+  Username: shoisko
+```
+
+The JSON can be manipulaed same way as YAML. You can merge multiple
+JSON files, change their keys etc.
