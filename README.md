@@ -244,7 +244,6 @@ Passwords:
   User: tvesala
 - Password: 123dsa
   User: shoisko
-
 ```
 
 ### Writing to file
@@ -261,6 +260,33 @@ To write to the file and screen:
 
 ```
     helm-yaml-tool.sh -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml | tee output.yaml
+```
+
+### Raw usage
+
+This is the usage example without the wrapper. 
+
+
+```
+  helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
+    --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
+    --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
+    --set Last_set="Dynamically created" helmchart
+```
+
+Output:
+```yaml
+---
+# Source: helm-yaml-tool/templates/values_to_yaml.yaml
+Apps:
+  Set1: Application1
+  Set2: Application2
+Last_set: Dynamically created
+Passwords:
+- Password: abc
+  User: tvesala
+- Password: 123dsa
+  User: shoisko
 ```
 
 ### Extra things
