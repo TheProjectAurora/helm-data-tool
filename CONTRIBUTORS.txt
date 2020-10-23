@@ -1,0 +1,3 @@
+Northcode Ltd (https://www.northcode.fi/)
+    Teemu Vesala (teemu.vesala@northcode.fi)
+    Sakari Hoisko (sakari.hoisko@northcode.fi)
