@@ -14,7 +14,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "helm-data-tool.name" -}}
+{{- define "helm-data-yaml.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -23,7 +23,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "helm-data-tool.fullname" -}}
+{{- define "helm-data-yaml.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -39,16 +39,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "helm-data-tool.chart" -}}
+{{- define "helm-data-yaml.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "helm-data-tool.labels" -}}
-helm.sh/chart: {{ include "helm-data-tool.chart" . }}
-{{ include "helm-data-tool.selectorLabels" . }}
+{{- define "helm-data-yaml.labels" -}}
+helm.sh/chart: {{ include "helm-data-yaml.chart" . }}
+{{ include "helm-data-yaml.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -58,17 +58,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "helm-data-tool.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "helm-data-tool.name" . }}
+{{- define "helm-data-yaml.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "helm-data-yaml.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "helm-data-tool.serviceAccountName" -}}
+{{- define "helm-data-yaml.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "helm-data-tool.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "helm-data-yaml.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

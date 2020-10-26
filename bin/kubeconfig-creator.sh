@@ -20,7 +20,7 @@ help() {
 
 full_command=$(realpath "$0")
 path=$(dirname "$full_command")
-helm_data_tool="$path/helm-data-tool.sh"
+helm_data_tool="$path/helm-data-yaml.sh"
 
 host=https://kubernetes.default.svc/
 user=default
