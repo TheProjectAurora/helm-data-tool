@@ -51,7 +51,8 @@ You combine multiple setting under single _--set_ statement, or define
 _--set_ multiple times. 
 
 ### Single value
-
+Single _--set_ value is always in YAML format.
+<BR>
 Adding new value:
 
 ```

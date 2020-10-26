@@ -6,6 +6,10 @@ This uses Helm (https://helm.sh/) to do the manipulation.
 
 This example expects, that `helm-yaml-tool.sh` and `helm-json-tool.sh` are in `PATH`. 
 
+# Requirements:
+helm.sh should be available. <br>
+Installation of helm.sh: https://helm.sh/docs/intro/install/
+
 # Usage
 
 ## Outcome is YAML:
@@ -32,6 +36,8 @@ The last _--set_ or _-f_ sets the final value for the key.
 * [Outcome is JSON](README_JSON_TOOL.md)
 
 # RAW usage directly with [helm](https://helm.sh/)
+Additional power of tools comes out when charts are pushed to chartmuseum/similar helm chart versioning system. Then charts are available everywhere where charts repo is defined and usage happened over network without cloning of this git repo. Just helm tool is required.
+
 ## Outcome is YAML:
 This is the usage example without the wrapper. 
 
