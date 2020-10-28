@@ -51,6 +51,11 @@ for arg in  "$@"; do
     fi
 done
 
+if test ! -f"$basedir/ca.crt" -o ! -f "$basedir/token"; then
+    echo Token or cert authority file is missing from "$basedir" 1>&2
+    exit 1
+fi
+
 "$helm_data_tool" -f "$path/../templates/kubeconfig.yaml" --set clusters[0].cluster.certificate-authority-data="$(base64 < "$basedir/ca.crt" )" \
     --set clusters[0].cluster.server="${host}",clusters[0].name="${host}",contexts[0].context.cluster="${host}" \
     --set contexts[0].context.user="${user}",users[0].name="${user}" \
