@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'helmchart_**/**'
+      - 'helmchart_yaml/**'
 
 jobs:
   release_helm-data-tool_charts:
