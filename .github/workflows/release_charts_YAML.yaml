@@ -5,41 +5,29 @@ on:
     branches:
       - master
     paths:
-      - 'helmchart_*/**'
+      - 'helmchart_yaml/**'
 
 jobs:
-  release_helm-data-tool_charts:
+  release_helm-data-json_chart:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout YAML
         uses: actions/checkout@v1
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
     
-      - name: Sed YAML tool chart version
+      - name: Sed yaml tool chart version
         run: |
           date
           rm -Rfv .cr-release-packages
           sed -i "s|^version: .*|version: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_yaml/charts/Chart.yaml
           sed -i "s|^appVersion: .*|appVersion: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_yaml/charts/Chart.yaml
-      - name: Run YAML tool chart-releaser
-        uses: helm/chart-releaser-action@v1.2.0
-        env:
-          CR_TOKEN: '${{ secrets.SAKEN_GITHUB_TOKEN_PUBLIC_REPOS }}'
-        with:
-          charts_dir: helmchart_yaml
-
-      - name: Sed JSON tool chart version
-        run: |
-          date
-          rm -Rfv .cr-release-packages
-          sed -i "s|^version: .*|version: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_json/charts/Chart.yaml
-          sed -i "s|^appVersion: .*|appVersion: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_json/charts/Chart.yaml
+          
       - name: Run JSON tool chart-releaser
         uses: helm/chart-releaser-action@v1.2.0
         env:
           CR_TOKEN: '${{ secrets.SAKEN_GITHUB_TOKEN_PUBLIC_REPOS }}'
         with:
-          charts_dir: helmchart_json
+          charts_dir: helmchart_yaml
