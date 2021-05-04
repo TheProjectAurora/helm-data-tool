@@ -11,7 +11,7 @@ jobs:
   release_helm-data-json_chart:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout YAML
+      - name: Git Checkout YAML tool
         uses: actions/checkout@v1
       - name: Configure Git
         run: |
@@ -25,7 +25,7 @@ jobs:
           sed -i "s|^version: .*|version: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_yaml/charts/Chart.yaml
           sed -i "s|^appVersion: .*|appVersion: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_yaml/charts/Chart.yaml
           
-      - name: Run JSON tool chart-releaser
+      - name: Run YAML tool chart-releaser
         uses: helm/chart-releaser-action@v1.2.0
         env:
           CR_TOKEN: '${{ secrets.SAKEN_GITHUB_TOKEN_PUBLIC_REPOS }}'

@@ -1,11 +1,11 @@
 name: Release Charts
 
-on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'helmchart_json/**'
+#on:
+#  push:
+#    branches:
+#      - master
+#    paths:
+#      - 'helmchart_json/**'
 
 jobs:
   release_helm-data-json_chart:
