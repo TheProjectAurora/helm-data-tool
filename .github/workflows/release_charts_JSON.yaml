@@ -8,7 +8,7 @@ on:
       - 'helmchart_json/**'
 
 jobs:
-  release_helm-data-yaml_chart:
+  release_helm-data-json_chart:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout JSON
@@ -24,7 +24,7 @@ jobs:
           rm -Rfv .cr-release-packages
           sed -i "s|^version: .*|version: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_json/charts/Chart.yaml
           sed -i "s|^appVersion: .*|appVersion: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_json/charts/Chart.yaml
-          
+
       - name: Run JSON tool chart-releaser
         uses: helm/chart-releaser-action@v1.2.0
         env:
