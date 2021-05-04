@@ -2,13 +2,13 @@ apiVersion: v1
 entries:
   helm-data-json:
   - apiVersion: v2
-    appVersion: 0.0.1
-    created: "2021-05-04T10:00:48.357725376Z"
+    appVersion: 1.0.1
+    created: "2021-05-04T10:07:58.370796925Z"
     description: Tool to:Merge yaml files, set keys/values to yaml and generate json.
-    digest: 743d51bd437218a6af513eb3991dbb46f93866690c66dd17096259d84cbbf3ce
+    digest: 9ee93b385be24494aeff056498cc5e9efd8b3a1805e7e0da400717fdfd049e4d
     name: helm-data-json
     type: application
     urls:
-    - https://github.com/TheProjectAurora/helm-data-tool/releases/download/helm-data-json-0.0.1/helm-data-json-0.0.1.tgz
-    version: 0.0.1
-generated: "2021-05-04T10:00:48.357730676Z"
+    - https://github.com/TheProjectAurora/helm-data-tool/releases/download/helm-data-json-1.0.1/helm-data-json-1.0.1.tgz
+    version: 1.0.1
+generated: "2021-05-04T10:07:58.370801825Z"
