@@ -5,7 +5,10 @@ on:
     branches:
       - master
     paths:
-      - 'helmchart_*/**'
+      - 'helmchart_yaml/**'
+
+inputs:
+  numOctocats:
 
 jobs:
   release:
@@ -21,3 +24,5 @@ jobs:
         uses: helm/chart-releaser-action@v1.2.0
         env:
           CR_TOKEN: '${{ secrets.SAKEN_GITHUB_TOKEN_PUBLIC_REPOS }}'
+        with:
+          charts_dir: helmchart_yaml
