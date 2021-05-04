@@ -7,9 +7,6 @@ on:
     paths:
       - 'helmchart_yaml/**'
 
-inputs:
-  numOctocats:
-
 jobs:
   release:
     runs-on: ubuntu-latest
