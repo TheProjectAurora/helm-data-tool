@@ -2,5 +2,5 @@ apiVersion: v2
 name: helm-data-json
 description: Tool to:Merge yaml files, set keys/values to yaml and generate json.
 type: application
-version: 1.0.0
-appVersion: 1.0.0
+version: 1.0.1
+appVersion: 1.0.1
