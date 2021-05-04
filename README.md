@@ -45,7 +45,7 @@ This is the usage example without the wrapper.
   helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
     --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
     --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
-    --set Last_set="Dynamically created" helmchart_yaml
+    --set Last_set="Dynamically created" helmchart_yaml/charts
 ```
 
 Output:
@@ -70,7 +70,7 @@ This is the usage example without the wrapper.
   helm template -f ./eg_files/set1.yaml -f ./eg_files/set2.yaml \
     --set Passwords={},Passwords[0].User=tvesala,Passwords[0].Password=abc  \
     --set Passwords[1].User=shoisko,Passwords[1].Password=123dsa  \
-    --set Last_set="Dynamically created" helmchart_json
+    --set Last_set="Dynamically created" helmchart_json/charts
 ```
 
 Output:
