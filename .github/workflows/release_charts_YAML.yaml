@@ -26,7 +26,7 @@ jobs:
           sed -i "s|^appVersion: .*|appVersion: 1.0.${GITHUB_RUN_NUMBER}|g" helmchart_yaml/charts/Chart.yaml
           
       - name: Run YAML tool chart-releaser
-        uses: helm/chart-releaser-action@v1.0.0
+        uses: helm/chart-releaser-action@v1.2.0
         env:
           CR_TOKEN: '${{ secrets.SAKEN_GITHUB_TOKEN_PUBLIC_REPOS }}'
         with:
